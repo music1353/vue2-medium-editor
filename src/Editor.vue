@@ -2,12 +2,12 @@
     <div>
         <!-- Editor Mode -->
         <div class="medium-editor-container" v-if="!readOnly">
-            <insert-embed v-if="editor" 
-                :uploadUrl="options.uploadUrl"
+          <!-- :uploadUrl="options.uploadUrl" -->
+            <!-- <insert-embed v-if="editor"
                 :onChange="triggerChange"
                 :editorRef="$refs.editor"
                 :editor="editor"
-                v-on:uploaded="uploadedCallback"></insert-embed>
+                v-on:uploaded="uploadedCallback"></insert-embed> -->
             <list-handler v-if="editor"
                 :editor="editor"
                 :onChange="triggerChange"></list-handler>
@@ -36,11 +36,12 @@ export default {
       editor: null,
       defaultOptions: {
         forcePlainText: false,
+        autoLink: true,
         placeholder: {
           text: "Write something great!!"
         },
         toolbar: {
-          buttons: ["bold", "italic", "quote", "h1", "h2", "h3", "h4", "h5"]
+          buttons: ["bold", "italic", "quote", "anchor", "h1", "h2", "h3", "h4", "h5"]
         }
       },
       hasContent: false
